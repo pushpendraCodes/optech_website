@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin } from '../components/SocialIcons';
+import { Twitter, Instagram, Linkedin } from '../components/SocialIcons';
 
 const staff = [
   {

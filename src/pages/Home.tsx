@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { ArrowRight, GraduationCap, Briefcase, Award, MapPin, Mail, Phone, ChevronLeft, ChevronRight, Monitor, Users, Trophy, BookOpen, Zap, Shield, Quote } from "lucide-react";
 
 /* ─── Scroll-reveal hook ───────────────────────────────────────── */
@@ -16,7 +16,7 @@ function useInView(options = {}) {
 }
 
 /* ─── Animated Counter ─────────────────────────────────────────── */
-function Counter({ target, suffix = "", duration = 2000 }) {
+function Counter({ target, suffix = "", duration = 2000 }: { target: number, suffix?: string, duration?: number }) {
   const [count, setCount] = useState(0);
   const [ref, inView] = useInView();
   useEffect(() => {
@@ -44,7 +44,7 @@ const reviews = [
 ];
 
 /* ─── Section Wrapper with reveal animation ────────────────────── */
-function Reveal({ children, delay = 0, className = "" }) {
+function Reveal({ children, delay = 0, className = "" }: { children: ReactNode, delay?: number, className?: string }) {
   const [ref, inView] = useInView();
   return (
     <div ref={ref} className={className} style={{ opacity: inView ? 1 : 0, transform: inView ? "translateY(0)" : "translateY(48px)", transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s` }}>

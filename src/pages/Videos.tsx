@@ -1,4 +1,4 @@
-import { Play, Search, Clock, Users, ArrowRight } from 'lucide-react';
+import { Play, Search, ArrowRight } from 'lucide-react';
 
 const Videos = () => {
   return (

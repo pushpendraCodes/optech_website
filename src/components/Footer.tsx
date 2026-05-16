@@ -1,4 +1,3 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
 import { Facebook, Twitter, Instagram, Linkedin } from './SocialIcons';
 import { Link } from 'react-router-dom';
 

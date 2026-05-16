@@ -1,4 +1,4 @@
-import { Search, ClipboardList, CheckCircle, Rocket, FileText, ArrowRight } from 'lucide-react';
+import { Search, ClipboardList, Rocket, FileText } from 'lucide-react';
 
 const steps = [
   {

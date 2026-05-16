@@ -1,4 +1,4 @@
-import { Clock, BarChart, BookOpen, CheckCircle, ChevronDown, Download, Users, Mail, Phone, User } from 'lucide-react';
+import { Clock, BarChart, BookOpen, CheckCircle, ChevronDown, Download, Users, Mail, User } from 'lucide-react';
 
 const CourseDetails = () => {
   return (
