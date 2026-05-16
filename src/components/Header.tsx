@@ -38,6 +38,38 @@ const Header = () => {
           : 'bg-white py-4'
       }`}
     >
+      <style>{`
+        @keyframes border-spin {
+          100% { transform: rotate(360deg); }
+        }
+        .menu-border-wrapper {
+          position: relative;
+          padding: 1.5px;
+          border-radius: 9999px;
+          overflow: hidden;
+        }
+        .menu-border-wrapper::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: conic-gradient(from 0deg, transparent 70%, var(--color-primary) 100%);
+          animation: border-spin 4s linear infinite;
+          z-index: 0;
+        }
+        .menu-border-inner {
+          position: relative;
+          z-index: 1;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 9999px;
+          display: flex;
+          align-items: center;
+          padding: 4px;
+        }
+      `}</style>
+
       <div className="container flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2 group">
@@ -50,23 +82,25 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation - Rounded Floating Menu */}
-        <nav className="hidden md:flex items-center bg-gray-50/50 border border-gray-100 px-1.5 py-1.5 rounded-full backdrop-blur-sm">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) =>
-                `px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  isActive
-                    ? 'bg-white text-primary shadow-sm'
-                    : 'text-gray-600 hover:text-primary hover:bg-white/50'
-                }`
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
-        </nav>
+        <div className="hidden md:flex menu-border-wrapper shadow-sm">
+          <nav className="menu-border-inner">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) =>
+                  `px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                    isActive
+                      ? 'bg-primary/5 text-primary shadow-sm'
+                      : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
+          </nav>
+        </div>
 
         {/* CTA Button */}
         <div className="hidden md:flex items-center">
